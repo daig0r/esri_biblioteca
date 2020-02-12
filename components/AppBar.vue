@@ -1,10 +1,13 @@
 <template lang="pug">
   v-app-bar(
       clipped-left
+      height="70"
       app
     )
-      template(v-if="$nuxt.$route.name === 'results'")
-        v-app-bar-nav-icon.d-lg-none(@click.stop="toggleVisibility(true)")
+      v-app-bar-nav-icon.d-lg-none(
+        v-if="$nuxt.$route.name === 'results'" 
+        @click.stop="toggleVisibility(true)"
+      )
       nuxt-link(to="/")
         v-img.mr-4(
           :src="require('~/assets/logo_esri_colombia_negro.png')"
@@ -12,14 +15,16 @@
           max-width="180"
           contain
         )
-      v-toolbar-title.headline.font-weight-bold.text-wrap Biblioteca
+      //- v-toolbar-title.headline.font-weight-bold.text-wrap Biblioteca
       v-spacer
       v-toolbar-items
-        v-container
+        v-container.my-auto
           v-btn(
+            v-if="$nuxt.$route.name !== 'login'" 
             color="primary"
             to="/login"
           ) Login
+            v-icon(right) mdi-account-circle
 </template>
 
 <script>

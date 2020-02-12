@@ -6,7 +6,7 @@
       app
     )
       v-container
-        p.title Filtrar
+        p.title.mb-0 Filtrar
       v-divider
       v-list(
         expand

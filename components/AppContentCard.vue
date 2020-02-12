@@ -7,7 +7,6 @@
       v-col(
         cols="12"
         md="8"
-        lg="7"
       )
         v-list(
           two-line
@@ -19,22 +18,27 @@
               label 
             ) Libro
           v-list-item
-            v-list-item-avatar(
-              color="grey"
-              size="120"
-              tile
-            )
-            v-list-item-content
-              v-list-item-title.headline.text-wrap Free Software, Free Society
-              v-list-item-subtitle Richard Stallman
-              v-card-text 
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            .d-flex.flex-column.flex-sm-row
+              v-list-item-avatar(
+                tile
+                height="250px"
+                width="180px"
+              )
+                v-img(
+                  :src="cover"
+                  alt="cover"
+                  contain
+                )
+              v-list-item-content
+                v-list-item-title.headline.text-wrap {{ title }}
+                v-list-item-subtitle
+                  span.text-wrap.comma(v-for="author in authors") {{ author }}
+                v-card-text {{ synopsis }}
       v-col
         v-list(two-line)
-          v-container
+          v-container.pt-0.pt-sm-3
             v-row
+              // TODO: hacer esto dinamico
               p
                 v-list-item
                   v-list-item-content
@@ -60,6 +64,7 @@
                 v-list-item-content
                   v-list-item-title.font-weight-medium.body-2 Temas
                   v-list-item-subtitle
+                      // TODO: hacer esto dinamico
                       v-chip.mr-2(
                         label
                         outlined
@@ -72,9 +77,24 @@
 
 <script>
 export default {
-  data() {
-    return {
-      data: ''
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    authors: {
+      type: Array,
+      required: true
+    },
+    synopsis: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    cover: {
+      type: String,
+      required: false,
+      default: ''
     }
   }
 }
@@ -83,5 +103,9 @@ export default {
 <style lang="scss" scoped>
 .v-card {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+.comma + .comma:before {
+  content: ', ';
 }
 </style>
