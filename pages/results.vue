@@ -28,7 +28,9 @@
           :title="data.title"
           :authors="data.authors"
           :synopsis="data.synopsis"
-          :cover="data.cover"
+          :cover="data.cover",
+          :details="data.details"
+          :topics="data.topics"
         )
 
 </template>
@@ -46,7 +48,26 @@ export default {
         authors: ['Richard Stallman', 'Richard Stallman'],
         synopsis:
           'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-        cover: require('~/assets/fsfs.jpg')
+        cover: require('~/assets/fsfs.jpg'),
+        topics: ['Software', 'Free'],
+        details: [
+          {
+            label: 'Publicador',
+            value: 'GNU Press'
+          },
+          {
+            label: 'Año de Publicación',
+            value: '2002'
+          },
+          {
+            label: 'Idioma',
+            value: 'Ingles'
+          },
+          {
+            label: 'Fuente',
+            value: 'Biblioteca Esri Colombia'
+          }
+        ]
       },
       items: [
         'Más reciente',

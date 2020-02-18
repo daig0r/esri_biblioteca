@@ -1,23 +1,13 @@
 <template lang="pug">
-ValidationObserver(ref="form")
-  v-form(submit.prevent="")
-    v-container
+v-container
+  ValidationObserver(ref="form")
+    v-form(submit.prevent="")
       v-row(
-        align="center"
         justify="center"
         no-gutters
       )
-        v-col(cols="3")
-          v-select.right-border(
-            v-model="resource"
-            :items="items"
-            placeholder="Contenido"
-            hide-selected
-            hide-details
-            outlined
-          )
         v-col
-          AppTextFieldWithValidation.right-border.left-border(
+          AppTextFieldWithValidation.right-border(
             v-model="search"
             mode="lazy"
             label="busqueda"
@@ -27,17 +17,15 @@ ValidationObserver(ref="form")
             single-line
             outlined
           )
-        v-col(
-          cols="auto"
-        )
+        v-col(cols="auto")
           v-btn.right-border-radius(
+            to="/search"
             color="error"
             height="56"
             depressed
             tile
-            to="/search"
           )
-            v-icon mdi-magnify
+            v-icon(medium) mdi-magnify
   
 </template>
 
@@ -71,12 +59,7 @@ export default {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.left-border >>> fieldset {
-  border-left: none;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.v-btn {
+.right-border-radius {
   /* border-color: rgba(0, 0, 0, 0.24) !important; */
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;

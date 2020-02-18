@@ -1,6 +1,5 @@
 <template lang="pug">
   v-container
-
     v-row(
       align="start"
       justify="center"
@@ -13,7 +12,7 @@
         AppAvatar(size="160" :message="data")
 
       v-col.mt-sm-10.pa-2(
-        cols="12"
+        cols="11"
         sm="7"
         xl="5"
       )
@@ -25,9 +24,9 @@
             v-card-title.headline Información de contacto
 
           v-card-text
-            ValidationObserver(ref="form")
-              v-form(submit.prevent="")
-                v-container
+            v-container
+              ValidationObserver(ref="form")
+                v-form(submit.prevent="")
                   v-row
                     v-col.py-0(cols="12" md="6")
                       AppTextFieldWithValidation(
@@ -83,7 +82,7 @@
                         dense
                         required
                       )
-                      AppTextFieldWithValidation(
+                      AppTextFieldWithValidation.order-xl-0(
                         v-model="user"
                         :clearable="editable"
                         :readonly="!editable"

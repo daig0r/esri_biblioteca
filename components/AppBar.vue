@@ -24,7 +24,6 @@
             color="primary"
             to="/login"
           ) Login
-            v-icon(right) mdi-account-circle
 </template>
 
 <script>

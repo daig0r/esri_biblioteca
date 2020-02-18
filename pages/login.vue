@@ -5,7 +5,7 @@
       justify="center"
     )
       v-col(
-        cols="12"
+        cols="11"
         sm="9"
         md="6"
         lg="5"

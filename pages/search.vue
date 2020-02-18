@@ -2,7 +2,7 @@
 v-container
   v-row(justify="center")
     v-col(
-      cols="12"
+      cols="11"
       sm="7"
       lg="6"
       xl="4"

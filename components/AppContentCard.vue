@@ -38,41 +38,21 @@
         v-list(two-line)
           v-container.pt-0.pt-sm-3
             v-row
-              // TODO: hacer esto dinamico
-              p
+              p(v-for="detail in details")
                 v-list-item
                   v-list-item-content
-                    v-list-item-title.font-weight-medium.body-2 Publicador
-                    v-list-item-subtitle GNU Press
-              p
-                v-list-item
-                  v-list-item-content
-                    v-list-item-title.font-weight-medium.body-2 Año de Publicación
-                    v-list-item-subtitle 2002
-              p
-                v-list-item
-                  v-list-item-content
-                    v-list-item-title.font-weight-medium.body-2 Idioma
-                    v-list-item-subtitle Ingles
-              p
-                v-list-item
-                  v-list-item-content
-                    v-list-item-title.font-weight-medium.body-2 Fuente
-                    v-list-item-subtitle Biblioteca Esri Colombia
+                    v-list-item-title.font-weight-medium.body-2 {{ detail.label }}
+                    v-list-item-subtitle {{ detail.value }}
             v-row
-              v-list-item
+              v-list-item(v-if="topics")
                 v-list-item-content
-                  v-list-item-title.font-weight-medium.body-2 Temas
+                  v-list-item-title.font-weight-medium.body-2.mb-1 Temas
                   v-list-item-subtitle
-                      // TODO: hacer esto dinamico
                       v-chip.mr-2(
+                        v-for="topic in topics"
                         label
                         outlined
-                      ) Software
-                      v-chip(
-                        label
-                        outlined
-                      ) Free
+                      ) {{ topic }}
 </template>
 
 <script>
@@ -95,6 +75,14 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    details: {
+      type: Array,
+      required: true
+    },
+    topics: {
+      type: Array,
+      required: false
     }
   }
 }

@@ -1,7 +1,14 @@
 <template lang="pug">
   v-container
     v-row(justify="center")
-      AppSearchBar
+      v-col(
+        cols="9"
+        sm="7"
+        md="6"
+        lg="5"
+        xl="4"
+      )
+        AppSearchBar
 </template>
 
 <script>
