@@ -13,16 +13,17 @@
           subheader
         )
           v-subheader
-            v-chip(
-              color="primary"
+            v-chip.mr-2(
+              v-for="category in categories"
+              :color="category.color"
               label 
-            ) Libro
+            ) {{ category.label }}
           v-list-item
             .d-flex.flex-column.flex-sm-row
               v-list-item-avatar(
-                tile
                 height="250px"
                 width="180px"
+                tile
               )
                 v-img(
                   :src="cover"
@@ -58,6 +59,10 @@
 <script>
 export default {
   props: {
+    categories: {
+      type: Array,
+      required: true
+    },
     title: {
       type: String,
       required: true

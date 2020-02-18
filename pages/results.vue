@@ -23,8 +23,8 @@
               ) 
 
         AppContentCard(
-          v-for="n in 5"
-          :key="n"
+          v-for="n in 5" :key="n"
+          :categories="data.categories"
           :title="data.title"
           :authors="data.authors"
           :synopsis="data.synopsis"
@@ -44,6 +44,16 @@ export default {
   data() {
     return {
       data: {
+        categories: [
+          {
+            label: 'Libro',
+            color: 'primary'
+          },
+          {
+            label: 'Digital',
+            color: 'success'
+          }
+        ],
         title: 'Free Software, Free Society',
         authors: ['Richard Stallman', 'Richard Stallman'],
         synopsis:
